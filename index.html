@@ -3,74 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Powered Cybersecurity Search Engine</title>
+    <title>Cybersecurity Workflow Automation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #121212;
-            font-family: Arial, sans-serif;
-            color: #ffffff;
-            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
         }
         .container {
-            width: 50%;
+            flex: 1;
+            max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #1e1e1e;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
         }
-        input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            background-color: #2a2a2a;
-            color: white;
-            font-size: 16px;
+        .container h2 {
+            color: #333;
+            margin-bottom: 20px;
         }
-        button {
-            background-color: #007BFF;
-            color: white;
-            border-radius: 10px;
-            padding: 10px 20px;
+        .container p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #007bff;
+            color: #fff;
             border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-            margin-top: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
         }
-        button:hover {
+        .button:hover {
             background-color: #0056b3;
         }
-        .results {
+        .drag-drop-area {
+            border: 2px dashed #007bff;
+            border-radius: 8px;
+            padding: 20px;
             margin-top: 20px;
-            text-align: left;
-            padding-left: 20px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .drag-drop-area:hover {
+            background-color: #e9e9e9;
+        }
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Cybersecurity Workflow Automation</h1>
+    </header>
     <div class="container">
-        <h1>🔍 AI-Powered Cybersecurity Search Engine</h1>
-        <input type="text" id="query" placeholder="Enter your cybersecurity query" value="How to detect a phishing attack?">
-        <br>
-        <button onclick="fetchResults()">Search</button>
-        <div class="results" id="results"></div>
+        <h2>Welcome to Cybersecurity Workflow Automation</h2>
+        <p>Automate your cybersecurity workflows and interact with our chatbot to get answers to your cybersecurity-related questions.</p>
+        <div class="button-container">
+            <a href="http://localhost:8501" class="button">Go to Chatbot</a>
+        </div>
+        <div class="drag-drop-area" id="drag-drop-area">
+            <p>Drag and drop your transformer models here</p>
+        </div>
     </div>
-
+    <footer>
+        <p>&copy; 2023 Cybersecurity Workflow Automation. All rights reserved.</p>
+    </footer>
     <script>
-        function fetchResults() {
-            const query = document.getElementById("query").value;
-            const resultsContainer = document.getElementById("results");
-            resultsContainer.innerHTML = "<p>Loading results...</p>";
-            
-            // Placeholder for AI-powered results
-            setTimeout(() => {
-                const exampleResults = ["Example result 1", "Example result 2", "Example result 3"];
-                resultsContainer.innerHTML = exampleResults.map((res, i) => `<p>${i + 1}. ${res}</p>`).join('');
-            }, 1000);
-        }
+        const dragDropArea = document.getElementById('drag-drop-area');
+
+        dragDropArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dragDropArea.style.backgroundColor = '#e9e9e9';
+        });
+
+        dragDropArea.addEventListener('dragleave', () => {
+            dragDropArea.style.backgroundColor = '#f9f9f9';
+        });
+
+        dragDropArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dragDropArea.style.backgroundColor = '#f9f9f9';
+            const files = event.dataTransfer.files;
+            for (const file of files) {
+                console.log('File dropped:', file.name);
+                // Handle file upload and processing here
+            }
+        });
     </script>
 </body>
 </html>
