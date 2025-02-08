@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Cybersecurity Search Engine</title>
+    <style>
+        body {
+            background-color: #121212;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background-color: #2a2a2a;
+            color: white;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .results {
+            margin-top: 20px;
+            text-align: left;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 AI-Powered Cybersecurity Search Engine</h1>
+        <input type="text" id="query" placeholder="Enter your cybersecurity query" value="How to detect a phishing attack?">
+        <br>
+        <button onclick="fetchResults()">Search</button>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        function fetchResults() {
+            const query = document.getElementById("query").value;
+            const resultsContainer = document.getElementById("results");
+            resultsContainer.innerHTML = "<p>Loading results...</p>";
+            
+            // Placeholder for AI-powered results
+            setTimeout(() => {
+                const exampleResults = ["Example result 1", "Example result 2", "Example result 3"];
+                resultsContainer.innerHTML = exampleResults.map((res, i) => `<p>${i + 1}. ${res}</p>`).join('');
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
